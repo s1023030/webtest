@@ -68,9 +68,9 @@ p {
 }
 @media screen and (max-width: 1200px) {
   .ccolumn{
-		-ms-flex: 20%;
-        flex: 20%;
-        max-width: 20%;
+		-ms-flex: 30%;
+        flex: 30%;
+        max-width: 30%;
   }
 }
 @media screen and (max-width: 800px) {
