@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="Git basic commands and technique
+Git Clone
+
+Git Checkout
+
+Git Pull
+
+Git Add
+
+Git Commit
+
+Git Push
+
+Git Status
+
+Git Branch
+
+Git Tag
+
+
+10 Git log
+
+Git R">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Ryan Zeng">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Basic Git tips"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Ryan&#39;s Blog"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>Basic Git tips - Ryan&#39;s Blog</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/sass/main.css">
+
+    <!--[if lt IE 8]>
+        <script src="/js/ie/html5shiv.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" href="/sass/ie8.css">
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="/sass/ie9.css">
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link rel="stylesheet" href="/css/gallery/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/zeng.svg" alt="" /></span><span class="title">Ryan's Blog</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/2018/03/03/About%20Me/">About</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>Basic Git tips</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<h2 id="Git-basic-commands-and-technique"><a href="#Git-basic-commands-and-technique" class="headerlink" title="Git basic commands and technique"></a>Git basic commands and technique</h2><ol>
+<li><p>Git Clone</p>
+</li>
+<li><p>Git Checkout</p>
+</li>
+<li><p>Git Pull</p>
+</li>
+<li><p>Git Add</p>
+</li>
+<li><p>Git Commit</p>
+</li>
+<li><p>Git Push</p>
+</li>
+<li><p>Git Status</p>
+</li>
+<li><p>Git Branch</p>
+</li>
+<li><p>Git Tag</p>
+</li>
+</ol>
+<p>10 Git log</p>
+<ol>
+<li><p>Git Reset</p>
+</li>
+<li><p>Git Revert</p>
+</li>
+<li><p>Solved conflict</p>
+</li>
+</ol>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><h3 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h3><pre><code>git -b branch_name remote_link        // Clone the specific branch from remote repository
+</code></pre><h3 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h3><pre><code>git commit --amend                    // to modify the comment of the last one commit
+</code></pre><h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><pre><code>git push --tag                        // Push tag to remote repository
+
+git push -d origin tag_name            // Delete tag in remote repository
+</code></pre><h3 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h3><pre><code>git branch                            // show all branch
+
+git branch &quot;branch_name&quot;            // add new branch
+
+git branch -d &quot;branch_name&quot;            // delete branch
+</code></pre><h3 id="git-tag"><a href="#git-tag" class="headerlink" title="git tag"></a>git tag</h3><p>Both branches and tags are essentially pointers to commits.<br>The big difference is that the commit a branch points to changes as you add new commits,<br>and a tag is frozen to a particular commit to mark a point in time as having a certain significance.<br>—–from <a href="https://stackoverflow.com/questions/4017508/what-is-the-difference-between-tag-and-branch-with-git" target="_blank" rel="noopener">stackoverflow</a></p>
+<pre><code>git tag                                //show all tag
+
+git tag &quot;tag_name&quot; SHA-code            //stick the tag to commit
+
+git tag -d &apos;tag_name&apos;                //delete tag
+
+git tag -l                            //List tags
+
+git tag -l -n                        //List tags with comments
+</code></pre><h3 id="The-parameters-for-git-describe"><a href="#The-parameters-for-git-describe" class="headerlink" title="The parameters for git describe"></a>The parameters for git describe</h3><pre><code>--tag                                // Get the latest git tag in repository
+
+--long                                 // Get the latest git tag with long format
+
+--always                             // If there is no tag in repository, it will return the SHA code of the latest commit.
+</code></pre><h3 id="The-parameters-for-git-log"><a href="#The-parameters-for-git-log" class="headerlink" title="The parameters for git log"></a>The parameters for git log</h3><pre><code>--oneline                           //show information of each commits  in one line
+
+--pretty=oneline                    //make them pretty &gt;_。
+
+--graph                             //show the graph of all commits
+
+--grep &quot;given_text&quot;                 //to search the commit log for the given text:
+
+--author &quot;name&quot;                     //Find the commit from someone
+
+--S                                 //find all instances of a string in your repo&apos;s history, also which were deleted
+
+--since
+
+--until
+
+--after
+</code></pre><h3 id="Fix-conflict-with-binary-files"><a href="#Fix-conflict-with-binary-files" class="headerlink" title="Fix conflict with binary files"></a>Fix conflict with binary files</h3><pre><code>git checkout --ours &quot;file_name&quot;
+
+git checkout --theirs &quot;file_name&quot;
+
+Remember to add and commit after checkout.
+</code></pre>
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+
+
+    <hr />
+    <h3>留言:</h3>
+    <div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.0&appId=177337369643636&autoLogAppEvents=1';
+		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+    <div class="fb-comments" data-href="https://s1023030.github.io/" data-numposts="5"></div>
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>About</h2>
+            <div>
+                This theme was initially developed by <a href="http://html5up.net" target="_blank">HTML5 UP</a>. It is adapted for Hexo by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a>.<br />The source code is available on <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank">GitHub</a>.
+            </div>
+        </section>
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="https://twitter.com/Ryan_Tseng_TW" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="https://www.facebook.com/profile.php?id=100001451360140" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="https://www.instagram.com/ryan_zeng_tw/" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                
+                    <li><a href="https://github.com/s1023030" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+                    <li><a href="mailto:s1023030@gmail.com" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- skel -->
+<script src="/js/skel.min.js"></script>
+
+<!-- Custom Code -->
+<script src="/js/util.js"></script>
+
+<!--[if lte IE 8]>
+<script src="/js/ie/respond.min.js"></script>
+<![endif]-->
+
+<!-- Custom Code -->
+<script src="/js/main.js"></script>
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+
+</html>
